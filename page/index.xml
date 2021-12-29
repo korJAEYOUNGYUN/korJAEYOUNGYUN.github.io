@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on </title>
-    <link>/page/</link>
-    <description>Recent content in Pages on </description>
+    <title>Pages on JAEYOUNGYUN</title>
+    <link>https://korjaeyoungyun.github.io/page/</link>
+    <description>Recent content in Pages on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Archives</title>
-      <link>/page/archives/</link>
+      <link>https://korjaeyoungyun.github.io/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/page/archives/</guid>
+      <guid>https://korjaeyoungyun.github.io/archives/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/page/about/</link>
+      <link>https://korjaeyoungyun.github.io/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/page/about/</guid>
+      <guid>https://korjaeyoungyun.github.io/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
  https://github.</description>
@@ -28,21 +29,21 @@ Hugo makes use of a variety of open source projects including:
     
     <item>
       <title>Links</title>
-      <link>/page/links/</link>
+      <link>https://korjaeyoungyun.github.io/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/page/links/</guid>
+      <guid>https://korjaeyoungyun.github.io/links/</guid>
       <description>To use this feature, add links section to frontmatter.
 This page&amp;rsquo;s frontmatter:
-links: - title: GitHub description: GitHub is the world&amp;#39;s largest software development platform. website: https://github.com image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png - title: TypeScript description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. website: https://www.typescriptlang.org image: ts-logo-128.jpg image field accepts both local and external images.</description>
+links:- title:GitHubdescription:GitHub is the world&amp;#39;s largest software development platform.website:https://github.comimage:https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png- title:TypeScriptdescription:TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.website:https://www.typescriptlang.orgimage:ts-logo-128.jpgimage field accepts both local and external images.</description>
     </item>
     
     <item>
       <title>Search</title>
-      <link>/page/search/</link>
+      <link>https://korjaeyoungyun.github.io/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/page/search/</guid>
+      <guid>https://korjaeyoungyun.github.io/search/</guid>
       <description></description>
     </item>
     
