@@ -6,7 +6,16 @@
     <description>Recent content in Posts on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Dec 2021 01:23:29 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jan 2022 20:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>viewDidLoad에서 navigationController가 없는 경우?</title>
+      <link>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</link>
+      <pubDate>Wed, 05 Jan 2022 20:02:57 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</guid>
+      <description>UIViewController의 viewDidLoad는 한번만 호출되기 때문에 이곳에서 View 설정과 같은 ViewController의 초기화 작업을</description>
+    </item>
+    
     <item>
       <title>StringFormat 순서 바꾸기</title>
       <link>https://korjaeyoungyun.github.io/p/stringformat-%EC%88%9C%EC%84%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0/</link>

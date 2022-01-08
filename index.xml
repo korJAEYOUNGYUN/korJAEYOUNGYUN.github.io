@@ -6,7 +6,96 @@
         <description>Recent content on JAEYOUNGYUN</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 30 Dec 2021 01:23:29 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 05 Jan 2022 20:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>viewDidLoad에서 navigationController가 없는 경우?</title>
+        <link>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</link>
+        <pubDate>Wed, 05 Jan 2022 20:02:57 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</guid>
+        <description>&lt;p&gt;UIViewController의 viewDidLoad는 한번만 호출되기 때문에 이곳에서 View 설정과 같은 ViewController의 초기화 작업을 주로 합니다.&lt;/p&gt;
+&lt;p&gt;navigationController 역시 viewDidLoad에서 자주 다뤄지는 프로퍼티입니다.&lt;br&gt;
+viewDidLoad에서 아래와 같은 코드를 자주 사용해 보셨을 것 입니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kr&#34;&gt;override&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;viewDidLoad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;navigationController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;setNavigationBarHidden&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;animated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;혹시 이런 상황에서 navigationController가 당연히 있을 것이라고 생각했는데, nil인 경우인 적이 있으신가요?&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;screenshot.png&#34; width=&#34;900&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;분명히 navigationController를 통해서 viewController를 띄웠고&lt;br&gt;
+여태까지 위와 같이 viewDidLoad에서 navigationController에 접근하는 것은 문제가 없었는데,&lt;br&gt;
+어떤 경우에서 문제가 발생하는걸까요?&lt;/p&gt;
+&lt;p&gt;이 글에서는 이러한 상황이 왜 일어나는 지에 대해서 알아보도록 하겠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;viewdidload의-호출-시점&#34;&gt;viewDidLoad의 호출 시점&lt;/h3&gt;
+&lt;p&gt;이런 상황은 viewDidLoad 호출되는 시점과 관련이 있습니다.&lt;/p&gt;
+&lt;p&gt;공식문서를 살펴보면, viewDidLoad의 호출 시점에 대해서 이렇게 나와 있습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This method is called after the view controller has loaded its view hierarchy into memory&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;뷰 컨트롤러의 뷰가 메모리에 로딩되었을 때 호출된다고 합니다.&lt;br&gt;
+그럼 뷰는 언제 메모리에 로딩될까요?&lt;/p&gt;
+&lt;p&gt;다음으로 loadView에 대한 공식 문서입니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;The view controller calls this method when its view property is requested but is currently nil.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;뷰 프로퍼티가 요청되었을 때 뷰가 없으면 뷰를 로딩한다고 나와 있습니다.&lt;br&gt;
+이와 같이 우리가 ViewController가 띄워지기 전에 미리 해당 뷰컨의 view에 접근할 경우 viewDidLoad가 호출된다는 것을 알 수 있습니다.&lt;/p&gt;
+&lt;p&gt;상황에 대한 정확한 이해를 위해 코드를 통해 확인해보도록 하겠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;샘플-코드&#34;&gt;샘플 코드&lt;/h3&gt;
+&lt;h5 id=&#34;일반적인-상황&#34;&gt;일반적인 상황&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FirstViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIViewController&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+  
+  &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;moveToSecondView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;navigationController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pushViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SecondViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;animated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SecondViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIViewController&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;override&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;viewDidLoad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// do something with navigationController&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// navigationController != nil&lt;/span&gt;
+    &lt;span class=&#34;kc&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;navigationController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위와 같이 일반적인 상황에서 우리는 뷰컨트롤러를 생성하고 바로 화면 전환을 합니다.&lt;br&gt;
+그러면 화면 전환 전에는 두 번째 뷰컨트롤러의 view를 사용하지 않으니 viewDidLoad가 호출되지 않고 화면 전환될 때 호출되게 됩니다.&lt;br&gt;
+화면 전환이 될 때에는 navigationController를 통해서 화면전환을 시켰으니 두 번째 뷰컨트롤러에서 navigationController에 아무 문제없이 접근할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그럼 문제가 되는 다른 상황의 코드를 보겠습니다.&lt;/p&gt;
+&lt;h5 id=&#34;navigationcontroller가-없는-상황&#34;&gt;navigationController가 없는 상황&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FirstViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIViewController&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;secondVC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SecondViewController&lt;/span&gt;
+  
+  &lt;span class=&#34;c1&#34;&gt;// this method is called before moveToSecondView()&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;configureSecondView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// do something with secondVC&amp;#39;s view&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;secondVC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;moveToSecondView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;navigationController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;?.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pushViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SecondViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;animated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SecondViewController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIViewController&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;override&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;viewDidLoad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// do something with navigationController&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// but navigationController is nil&lt;/span&gt;
+    &lt;span class=&#34;kc&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;navigationController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위 코드에서는 첫 번째 뷰컨트롤러에서 두 번째 뷰컨트롤러로 화면 전환을 하기 전에 configureSecondView 메소드를 통해 두 번째 뷰컨트롤러의 뷰에 접근을 하고 있습니다.&lt;br&gt;
+이때, 두 번째 뷰컨트롤러의 viewDidLoad가 호출되며 이 시점에서 두 번째 뷰컨트롤러의 viewDidLoad에서 navigationController는 nil 입니다. moveToSecondView 호출을 하지 않았기 때문에 두 번째 뷰컨트롤러에 네비게이션에 대한 어떠한 동작도 하지 않았기 때문입니다.&lt;/p&gt;
+&lt;p&gt;당연히 이런 상황에서 navigationController를 사용하는 코드는 optional chanining에 걸려서 동작하지 않을 것이고 force unwrapping을 하였다면 앱이 터지는 상황까지 갈 것입니다.&lt;/p&gt;
+&lt;h3 id=&#34;정리&#34;&gt;정리&lt;/h3&gt;
+&lt;p&gt;이와 같이 우리는 viewDidLoad 에서 초기화 및 설정 작업을 해주지만, 여기서 navigationController가 항상 존재하는 것은 아니라는 점을 알고 있어야 합니다.&lt;/p&gt;
+&lt;p&gt;자식 뷰컨트롤러의 viewDidLoad에서 navigationController가 없는 상황이 발생할 경우, view에 대한 접근 시점을 화면 전환 이후에 하도록 늦추거나  navigationController를 부모 뷰컨트롤러에서 설정한 후 화면 전환 할 때 해당 navigationController를 통해 화면 전환을 해주면 이러한 상황을 해결할 수 있습니다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>StringFormat 순서 바꾸기</title>
         <link>https://korjaeyoungyun.github.io/p/stringformat-%EC%88%9C%EC%84%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0/</link>
         <pubDate>Thu, 30 Dec 2021 01:23:29 +0900</pubDate>
