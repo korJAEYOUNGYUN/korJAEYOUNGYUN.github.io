@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='UIViewController의 viewDidLoad 호출 시점에 대해 설명합니다.'><title>viewDidLoad에서 navigationController가 없는 경우?</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SkeletonView란 무엇일까요'><title>UX를 향상시켜주는 SkeletonView</title>
 
-<link rel='canonical' href='https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/'>
+<link rel='canonical' href='https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/'>
 
-<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='viewDidLoad에서 navigationController가 없는 경우?'>
-<meta property='og:description' content='UIViewController의 viewDidLoad 호출 시점에 대해 설명합니다.'>
-<meta property='og:url' content='https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/'>
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='UX를 향상시켜주는 SkeletonView'>
+<meta property='og:description' content='SkeletonView란 무엇일까요'>
+<meta property='og:url' content='https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/'>
 <meta property='og:site_name' content='JAEYOUNGYUN'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='iOS' /><meta property='article:tag' content='UIKit' /><meta property='article:published_time' content='2022-01-05T20:02:57&#43;09:00'/><meta property='article:modified_time' content='2022-01-05T20:02:57&#43;09:00'/>
-<meta name="twitter:title" content="viewDidLoad에서 navigationController가 없는 경우?">
-<meta name="twitter:description" content="UIViewController의 viewDidLoad 호출 시점에 대해 설명합니다.">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='iOS' /><meta property='article:tag' content='SkeletonView' /><meta property='article:tag' content='UX' /><meta property='article:published_time' content='2022-01-16T17:57:18&#43;09:00'/><meta property='article:modified_time' content='2022-01-16T17:57:18&#43;09:00'/>
+<meta name="twitter:title" content="UX를 향상시켜주는 SkeletonView">
+<meta name="twitter:description" content="SkeletonView란 무엇일까요">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQJF6X446N"></script>
 <script>
 var doNotTrack = false;
@@ -188,16 +188,20 @@ if (!doNotTrack) {
                 iOS
             </a>
         
+            <a href="/categories/ux/" >
+                UX
+            </a>
+        
     </header>
     
 
     <h2 class="article-title">
-        <a href="/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/">viewDidLoad에서 navigationController가 없는 경우?</a>
+        <a href="/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/">UX를 향상시켜주는 SkeletonView</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        UIViewController의 viewDidLoad 호출 시점에 대해 설명합니다.
+        SkeletonView란 무엇일까요
     </h3>
     
 
@@ -214,7 +218,7 @@ if (!doNotTrack) {
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 05, 2022</time>
+                <time class="article-time--published">Jan 16, 2022</time>
             </div>
         
 
@@ -229,7 +233,7 @@ if (!doNotTrack) {
 
 
                 <time class="article-time--reading">
-                    4 분 정도
+                    2 분 정도
                 </time>
             </div>
         
@@ -239,87 +243,46 @@ if (!doNotTrack) {
 </header>
 
     <section class="article-content">
-    <p>UIViewController의 viewDidLoad는 한번만 호출되기 때문에 이곳에서 View 설정과 같은 ViewController의 초기화 작업을 주로 합니다.</p>
-<p>navigationController 역시 viewDidLoad에서 자주 다뤄지는 프로퍼티입니다.<br>
-viewDidLoad에서 아래와 같은 코드를 자주 사용해 보셨을 것 입니다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">...</span>
-  <span class="n">navigationController</span><span class="p">?.</span><span class="n">setNavigationBarHidden</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div><p>혹시 이런 상황에서 navigationController가 당연히 있을 것이라고 생각했는데, nil인 경우인 적이 있으신가요?</p>
-<figure><img src="screenshot.png" width="900"/>
+    <p>네트워크로 데이터를 받아오는 작업과 같이 시간이 오래걸리고, 언제 끝날지 모르는 작업들을 처리할 때, 그리고 그 작업의 결과를 화면에 보여줘야 할때 애플리케이션에서는 작업 진행 중이라는 것을 사용자에게 알려줌으로서 사용자가 작업이 완료될 때까지 기다릴 수 있게끔 유도합니다.</p>
+<p>단순히 빙글빙글 도는 인디케이터부터, 퍼센티지를 통해 어느정도 작업이 진행되었는지를 알려주는 progress bar등 다양한 방식으로 앱에서는 사용자 경험을 향상시키고자 노력합니다.</p>
+<figure><img src="iosbasicloading.gif"
+         alt="iOS 기본 로딩" width="250"/><figcaption>
+            <p>iOS 기본 로딩</p>
+        </figcaption>
 </figure>
 
-<p>분명히 navigationController를 통해서 viewController를 띄웠고<br>
-여태까지 위와 같이 viewDidLoad에서 navigationController에 접근하는 것은 문제가 없었는데,<br>
-어떤 경우에서 문제가 발생하는걸까요?</p>
-<p>이 글에서는 이러한 상황이 왜 일어나는 지에 대해서 알아보도록 하겠습니다.</p>
-<h3 id="viewdidload의-호출-시점">viewDidLoad의 호출 시점</h3>
-<p>이런 상황은 viewDidLoad 호출되는 시점과 관련이 있습니다.</p>
-<p>공식문서를 살펴보면, viewDidLoad의 호출 시점에 대해서 이렇게 나와 있습니다.</p>
-<blockquote>
-<p><em>This method is called after the view controller has loaded its view hierarchy into memory</em>.</p>
-</blockquote>
-<p>뷰 컨트롤러의 뷰가 메모리에 로딩되었을 때 호출된다고 합니다.<br>
-그럼 뷰는 언제 메모리에 로딩될까요?</p>
-<p>다음으로 loadView에 대한 공식 문서입니다.</p>
-<blockquote>
-<p><em>The view controller calls this method when its view property is requested but is currently nil.</em></p>
-</blockquote>
-<p>뷰 프로퍼티가 요청되었을 때 뷰가 없으면 뷰를 로딩한다고 나와 있습니다.<br>
-이와 같이 우리가 ViewController가 띄워지기 전에 미리 해당 뷰컨의 view에 접근할 경우 viewDidLoad가 호출된다는 것을 알 수 있습니다.</p>
-<p>상황에 대한 정확한 이해를 위해 코드를 통해 확인해보도록 하겠습니다.</p>
-<h3 id="샘플-코드">샘플 코드</h3>
-<h5 id="일반적인-상황">일반적인 상황</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">FirstViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
-  <span class="p">...</span>
-  
-  <span class="kd">func</span> <span class="nf">moveToSecondView</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">navigationController</span><span class="p">?.</span><span class="n">pushViewController</span><span class="p">(</span><span class="n">SecondViewController</span><span class="p">(),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<p>이번 글에서는 그 중에서도 직관적으로 어떤 컨텐츠가 로딩되고 있는지를 표현할 수 있는 스켈레톤 스크린과 그걸 iOS에서 구현한 SkeletonView라는 라이브러리에 대해서 알아보겠습니다.</p>
+<h3 id="skeleton-screen-이란">Skeleton Screen 이란?</h3>
+<p>스켈레톤 스크린이란 화면의 레이아웃과 모양에 유사하게 나오는 로딩입니다.<br>
+그렇기 때문에 사용자가 앞으로 나올 화면을 예상할 수 있고, 사용자는 로딩이 더욱 실시간같고 빠르게 느껴지게 됩니다.</p>
+<p>유튜브, 페이스북등 많은 웹, 모바일 애플리케이션에서 이를 통해 사용자 경험을 증대시키고 있습니다.</p>
+<figure><img src="youtubeskeleton.PNG"
+         alt="유튜브 스켈레톤 화면" width="250"/><figcaption>
+            <p>유튜브 스켈레톤 화면</p>
+        </figcaption>
+</figure>
 
-<span class="kd">class</span> <span class="nc">SecondViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
-  <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">...</span>
-    <span class="c1">// do something with navigationController</span>
-    <span class="c1">// navigationController != nil</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">...</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>위와 같이 일반적인 상황에서 우리는 뷰컨트롤러를 생성하고 바로 화면 전환을 합니다.<br>
-그러면 화면 전환 전에는 두 번째 뷰컨트롤러의 view를 사용하지 않으니 viewDidLoad가 호출되지 않고 화면 전환될 때 호출되게 됩니다.<br>
-화면 전환이 될 때에는 navigationController를 통해서 화면전환을 시켰으니 두 번째 뷰컨트롤러에서 navigationController에 아무 문제없이 접근할 수 있습니다.</p>
-<p>그럼 문제가 되는 다른 상황의 코드를 보겠습니다.</p>
-<h5 id="navigationcontroller가-없는-상황">navigationController가 없는 상황</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">FirstViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nv">secondVC</span><span class="p">:</span> <span class="n">SecondViewController</span>
-  
-  <span class="c1">// this method is called before moveToSecondView()</span>
-  <span class="kd">func</span> <span class="nf">configureSecondView</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// do something with secondVC&#39;s view</span>
-    <span class="n">secondVC</span><span class="p">.</span><span class="n">view</span><span class="p">...</span>
-  <span class="p">}</span>
-  
-  <span class="kd">func</span> <span class="nf">moveToSecondView</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">navigationController</span><span class="p">?.</span><span class="n">pushViewController</span><span class="p">(</span><span class="n">SecondViewController</span><span class="p">(),</span> <span class="n">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<h3 id="skeleton-view">Skeleton View</h3>
+<p>iOS 에서는 <a class="link" href="https://github.com/Juanpe/SkeletonView"  target="_blank" rel="noopener"
+    >SkeletonView</a> 라는 라이브러리를 사용하면 손쉽게 스켈레톤 스크린을 구현할 수 있습니다.</p>
+<p>스켈레톤 뷰는 UIView의 extension을 통해 기능을 제공합니다.<br>
+스켈레톤 뷰를 사용하는 방법은 기본적으로 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">view</span><span class="p">.</span><span class="n">isSkeletonable</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></div><p>을 통해 내가 원하는 뷰를 스켈레톤 뷰로 띄울 수 있게 설정할 수 있습니다.<br>
+그 다음 아래 코드로 스켈레톤을 켜고 끌 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="n">view</span><span class="p">.</span><span class="n">showSkeleton</span><span class="p">()</span>
 
-<span class="kd">class</span> <span class="nc">SecondViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
-  <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
-    <span class="p">...</span>
-    <span class="c1">// do something with navigationController</span>
-    <span class="c1">// but navigationController is nil</span>
-    <span class="kc">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">...</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>위 코드에서는 첫 번째 뷰컨트롤러에서 두 번째 뷰컨트롤러로 화면 전환을 하기 전에 configureSecondView 메소드를 통해 두 번째 뷰컨트롤러의 뷰에 접근을 하고 있습니다.<br>
-이때, 두 번째 뷰컨트롤러의 viewDidLoad가 호출되며 이 시점에서 두 번째 뷰컨트롤러의 viewDidLoad에서 navigationController는 nil 입니다. moveToSecondView 호출을 하지 않았기 때문에 두 번째 뷰컨트롤러에 네비게이션에 대한 어떠한 동작도 하지 않았기 때문입니다.</p>
-<p>당연히 이런 상황에서 navigationController를 사용하는 코드는 optional chanining에 걸려서 동작하지 않을 것이고 force unwrapping을 하였다면 앱이 터지는 상황까지 갈 것입니다.</p>
-<h3 id="정리">정리</h3>
-<p>이와 같이 우리는 viewDidLoad 에서 초기화 및 설정 작업을 해주지만, 여기서 navigationController가 항상 존재하는 것은 아니라는 점을 알고 있어야 합니다.</p>
-<p>자식 뷰컨트롤러의 viewDidLoad에서 navigationController가 없는 상황이 발생할 경우, view에 대한 접근 시점을 화면 전환 이후에 하도록 늦추거나  navigationController를 부모 뷰컨트롤러에서 설정한 후 화면 전환 할 때 해당 navigationController를 통해 화면 전환을 해주면 이러한 상황을 해결할 수 있습니다.</p>
+<span class="n">view</span><span class="p">.</span><span class="n">hideSkeleton</span><span class="p">()</span>
+</code></pre></div><p>추가적으로 스켈레톤의 모양, 타이밍, 애니메이션등 다양한 설정을 해줄 수 있는데 이는 <a class="link" href="https://github.com/Juanpe/SkeletonView"  target="_blank" rel="noopener"
+    >공식문서</a> 에서 확인해보시기 바랍니다.</p>
+<p>한 가지 중요한 점은, showSkeleton 과 hideSkeleton을 할때<br>
+해당 뷰의 하위 뷰들에게도 적용이 된다는 점입니다.</p>
+<blockquote>
+<p>Since <code>SkeletonView</code> is recursive, and we want skeleton to be very efficient, we want to stop recursion as soon as possible. For this reason, you must set the container view as <code>Skeletonable</code>, because Skeleton will stop looking for <code>skeletonable</code> subviews as soon as a view is not Skeletonable, breaking then the recursion.</p>
+</blockquote>
+<p>공식 문서에 따르면, 스켈레톤 뷰는 하위 뷰들을 재귀적으로 탐색하면서 isSkeletonable이 true로 설정되어 있는 뷰들에게 모두 적용이 됩니다.<br>
+따라서 하나의 화면에 여러 스켈레톤 뷰들을 구성해놓고 일일히 스켈레톤 뷰를 끄고 킬 필요 없이, 최상위 뷰에서부터 하위 뷰까지 isSkeletonable을 true로 설정해주고 스켈레톤을 켜고 끄면 모두 적용이 되게 됩니다.</p>
+<p>이러한 기본적인 요소들을 이해하셨다면 스켈레톤 뷰를 적용하는데에 큰 어려움을 없을 것입니다.</p>
 
 </section>
 
@@ -330,7 +293,9 @@ viewDidLoad에서 아래와 같은 코드를 자주 사용해 보셨을 것 입�
         
             <a href="/tags/ios/">iOS</a>
         
-            <a href="/tags/uikit/">UIKit</a>
+            <a href="/tags/skeletonview/">SkeletonView</a>
+        
+            <a href="/tags/ux/">UX</a>
         
     </section>
 
@@ -376,12 +341,12 @@ viewDidLoad에서 아래와 같은 코드를 자주 사용해 보셨을 것 입�
                 
                     
 <article class="">
-    <a href="/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/">
+    <a href="/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">UX를 향상시켜주는 SkeletonView</h2>
+            <h2 class="article-title">viewDidLoad에서 navigationController가 없는 경우?</h2>
         </div>
     </a>
 </article>

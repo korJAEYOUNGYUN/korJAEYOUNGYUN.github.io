@@ -6,7 +6,142 @@
         <description>Recent content on JAEYOUNGYUN</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 05 Jan 2022 20:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Jan 2022 16:35:40 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Skeletonview 적용하기</title>
+        <link>https://korjaeyoungyun.github.io/p/skeletonview-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+        <pubDate>Sun, 23 Jan 2022 16:35:40 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/skeletonview-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+        <description>&lt;h3 id=&#34;스켈레톤-뷰-구성-하기&#34;&gt;스켈레톤 뷰 구성 하기&lt;/h3&gt;
+&lt;p&gt;스켈레톤 뷰는 기존 뷰에 isSkeletonable을 통해 별다른 추가 작업없이 스켈레톤 스크린을 구현할 수 있게 해줍니다.&lt;br&gt;
+하지만 스켈레톤 뷰를 몇 번 사용해보니 우리가 정학히 원하는 모양을 잡기 위해서 기존의 뷰를 그대로 활용하기가 애매해지는 부분이 있었습니다.&lt;br&gt;
+기존의 뷰의 크기가 고정되어 있지 않고 동적인 경우, 스켈레톤 뷰를 위해서 스켈레톤을 띄우는 동안에는 원하는 크기로 고정을 시켜주어야 합니다.&lt;/p&gt;
+&lt;p&gt;예를 들어, width를 잡지 않고 사용하는 UILabel의 경우, text 크기에 따라서 width가 정해지게 됩니다.&lt;br&gt;
+이 label에 스켈레톤을 적용하려면, width를 잡아주거나, 일정 크기만큼의 dummy text를 넣어주어야 합니다.&lt;br&gt;
+이는 내가 원하지 않은 설계가 되거나, 가독성이 떨어지는 코드가 될 가능성이 있습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;ex1.png&#34;
+         alt=&#34;기존 뷰&#34; width=&#34;250&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;기존 뷰&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;다음과 같은 기존 뷰에 스켈레톤 뷰를 적용해보겠습니다.&lt;br&gt;
+해당 뷰는 제목과 설명을 보여주는 두 개의 UILabel로 구성되어 있습니다.&lt;br&gt;
+또한, 레이블에 텍스트는 데이터가 로딩 된 후 채워진다고 가정합니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;n&#34;&gt;titleLabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSkeletonable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;descriptionLabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSkeletonable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위와 같이 스켈레톤을 적용해주고 showSkeleton()을 호출해주면 데이터가 없는 상태에서 두 레이블의 텍스트가 비어있고, 텍스트가 비어있으니까 width가 0이기 때문에 아무것도 뜨지 않습니다.&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해 먼저, 레이블의 너비를 고정시켜보겠습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;n&#34;&gt;titleLabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;widthAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalToConstant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;descriptionLabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;widthAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;widthAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;descriptionLabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;heightAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalToConstant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이런 방식으로 데이터가 들어오기 전에 스켈레톤 뷰를 구성해 줄 수 있지만, 이렇게 되면 데이터가 들어온 후 레이아웃 제약을 바꿔주어야하므로 사용하기 불편합니다.&lt;/p&gt;
+&lt;p&gt;다른 방법으로는 레이블에 가짜 데이터를 채워서 너비가 잡혀있게 하는 것인데 이는 코드가 보기에 깔끔하지 않습니다.&lt;/p&gt;
+&lt;h3 id=&#34;분리해서-관리하기&#34;&gt;분리해서 관리하기&lt;/h3&gt;
+&lt;p&gt;마지막으로 이를 해결하기 위해 기존 뷰와 같은 모양과 레이아웃을 가진 뷰를 만들어 이를 스켈레톤 시 보여줬다가 스켈레톤이 끄면 숨겨버리는 방식을 사용하겠습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MySkeletonView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIView&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIView&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSkeletonable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;translatesAutoresizingMaskIntoConstraints&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}()&lt;/span&gt;
+  
+  &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;descriptionView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIView&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UIView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSkeletonable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;translatesAutoresizingMaskIntoConstraints&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}()&lt;/span&gt;
+  
+  &lt;span class=&#34;kd&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    
+    &lt;span class=&#34;n&#34;&gt;NSLayoutConstraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;activate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;topAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;topAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;leadingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;leadingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;widthAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalToConstant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;heightAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalToConstant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      
+      &lt;span class=&#34;n&#34;&gt;descriptionView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;topAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;titleView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bottomAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;descriptionView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;leadingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;leadingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;descriptionView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trailingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalTo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trailingAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+      &lt;span class=&#34;n&#34;&gt;descriptionView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;heightAnchor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constraint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;equalToConstant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;새로 만들어서 분리한 스켈레톤 뷰입니다. 기존 뷰의 껍데기만 흉내내고 있습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;showMySkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;skeletonView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isHidden&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;skeletonView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;showSkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  
+&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hideMySkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;skeletonView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hideSkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;skeletonView&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isHidden&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이를 기존 뷰에서 사용하여 스켈레톤을 띄웁니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;ex2.gif&#34;
+         alt=&#34;스켈레톤 뷰 적용된 모습&#34; width=&#34;250&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;스켈레톤 뷰 적용된 모습&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;정리&#34;&gt;정리&lt;/h3&gt;
+&lt;p&gt;기존 뷰와 스켈레톤용 뷰를 분리하여 구성하면 UI 디자인이 바뀔 때마다 기존 뷰와 스켈레톤 용 뷰 두 개를 수정해야한다는 단점이 있지만, 스켈레톤 용 뷰가  깔끔하고 단순해져서 관리하기가 더 편하다는 장점이 있습니다.&lt;/p&gt;
+&lt;p&gt;cell 역시 이런식으로 스켈레톤용을 따로 만들어서 사용하면 관리하기가 수월해집니다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>UX를 향상시켜주는 SkeletonView</title>
+        <link>https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/</link>
+        <pubDate>Sun, 16 Jan 2022 17:57:18 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/</guid>
+        <description>&lt;p&gt;네트워크로 데이터를 받아오는 작업과 같이 시간이 오래걸리고, 언제 끝날지 모르는 작업들을 처리할 때, 그리고 그 작업의 결과를 화면에 보여줘야 할때 애플리케이션에서는 작업 진행 중이라는 것을 사용자에게 알려줌으로서 사용자가 작업이 완료될 때까지 기다릴 수 있게끔 유도합니다.&lt;/p&gt;
+&lt;p&gt;단순히 빙글빙글 도는 인디케이터부터, 퍼센티지를 통해 어느정도 작업이 진행되었는지를 알려주는 progress bar등 다양한 방식으로 앱에서는 사용자 경험을 향상시키고자 노력합니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;iosbasicloading.gif&#34;
+         alt=&#34;iOS 기본 로딩&#34; width=&#34;250&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;iOS 기본 로딩&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;이번 글에서는 그 중에서도 직관적으로 어떤 컨텐츠가 로딩되고 있는지를 표현할 수 있는 스켈레톤 스크린과 그걸 iOS에서 구현한 SkeletonView라는 라이브러리에 대해서 알아보겠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;skeleton-screen-이란&#34;&gt;Skeleton Screen 이란?&lt;/h3&gt;
+&lt;p&gt;스켈레톤 스크린이란 화면의 레이아웃과 모양에 유사하게 나오는 로딩입니다.&lt;br&gt;
+그렇기 때문에 사용자가 앞으로 나올 화면을 예상할 수 있고, 사용자는 로딩이 더욱 실시간같고 빠르게 느껴지게 됩니다.&lt;/p&gt;
+&lt;p&gt;유튜브, 페이스북등 많은 웹, 모바일 애플리케이션에서 이를 통해 사용자 경험을 증대시키고 있습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;youtubeskeleton.PNG&#34;
+         alt=&#34;유튜브 스켈레톤 화면&#34; width=&#34;250&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;유튜브 스켈레톤 화면&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;skeleton-view&#34;&gt;Skeleton View&lt;/h3&gt;
+&lt;p&gt;iOS 에서는 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Juanpe/SkeletonView&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SkeletonView&lt;/a&gt; 라는 라이브러리를 사용하면 손쉽게 스켈레톤 스크린을 구현할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;스켈레톤 뷰는 UIView의 extension을 통해 기능을 제공합니다.&lt;br&gt;
+스켈레톤 뷰를 사용하는 방법은 기본적으로 다음과 같습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isSkeletonable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;을 통해 내가 원하는 뷰를 스켈레톤 뷰로 띄울 수 있게 설정할 수 있습니다.&lt;br&gt;
+그 다음 아래 코드로 스켈레톤을 켜고 끌 수 있습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;showSkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;view&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hideSkeleton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;추가적으로 스켈레톤의 모양, 타이밍, 애니메이션등 다양한 설정을 해줄 수 있는데 이는 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Juanpe/SkeletonView&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;공식문서&lt;/a&gt; 에서 확인해보시기 바랍니다.&lt;/p&gt;
+&lt;p&gt;한 가지 중요한 점은, showSkeleton 과 hideSkeleton을 할때&lt;br&gt;
+해당 뷰의 하위 뷰들에게도 적용이 된다는 점입니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since &lt;code&gt;SkeletonView&lt;/code&gt; is recursive, and we want skeleton to be very efficient, we want to stop recursion as soon as possible. For this reason, you must set the container view as &lt;code&gt;Skeletonable&lt;/code&gt;, because Skeleton will stop looking for &lt;code&gt;skeletonable&lt;/code&gt; subviews as soon as a view is not Skeletonable, breaking then the recursion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;공식 문서에 따르면, 스켈레톤 뷰는 하위 뷰들을 재귀적으로 탐색하면서 isSkeletonable이 true로 설정되어 있는 뷰들에게 모두 적용이 됩니다.&lt;br&gt;
+따라서 하나의 화면에 여러 스켈레톤 뷰들을 구성해놓고 일일히 스켈레톤 뷰를 끄고 킬 필요 없이, 최상위 뷰에서부터 하위 뷰까지 isSkeletonable을 true로 설정해주고 스켈레톤을 켜고 끄면 모두 적용이 되게 됩니다.&lt;/p&gt;
+&lt;p&gt;이러한 기본적인 요소들을 이해하셨다면 스켈레톤 뷰를 적용하는데에 큰 어려움을 없을 것입니다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>viewDidLoad에서 navigationController가 없는 경우?</title>
         <link>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</link>
         <pubDate>Wed, 05 Jan 2022 20:02:57 +0900</pubDate>

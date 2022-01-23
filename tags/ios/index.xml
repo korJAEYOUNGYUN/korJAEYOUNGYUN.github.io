@@ -6,7 +6,25 @@
     <description>Recent content in iOS on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jan 2022 20:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 16:35:40 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Skeletonview 적용하기</title>
+      <link>https://korjaeyoungyun.github.io/p/skeletonview-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Sun, 23 Jan 2022 16:35:40 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/p/skeletonview-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <description>스켈레톤 뷰 구성 하기 스켈레톤 뷰는 기존 뷰에 isSkeletonable을 통해 별다른 추가 작업없이 스켈레톤 스크린을 구현할 수 있게 해줍니다. 하지만 스켈레</description>
+    </item>
+    
+    <item>
+      <title>UX를 향상시켜주는 SkeletonView</title>
+      <link>https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/</link>
+      <pubDate>Sun, 16 Jan 2022 17:57:18 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/</guid>
+      <description>네트워크로 데이터를 받아오는 작업과 같이 시간이 오래걸리고, 언제 끝날지 모르는 작업들을 처리할 때, 그리고 그 작업의 결과를 화면에 보여줘야 할때 애플리케이션에</description>
+    </item>
+    
     <item>
       <title>viewDidLoad에서 navigationController가 없는 경우?</title>
       <link>https://korjaeyoungyun.github.io/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/</link>
