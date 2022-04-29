@@ -6,7 +6,51 @@
         <description>Recent content on JAEYOUNGYUN</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 17 Mar 2022 22:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 29 Apr 2022 23:18:40 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>코드 리뷰를 잘하는 법</title>
+        <link>https://korjaeyoungyun.github.io/p/%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%A5%BC-%EC%9E%98%ED%95%98%EB%8A%94-%EB%B2%95/</link>
+        <pubDate>Fri, 29 Apr 2022 23:18:40 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%A5%BC-%EC%9E%98%ED%95%98%EB%8A%94-%EB%B2%95/</guid>
+        <description>&lt;img src="https://korjaeyoungyun.github.io/p/%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%A5%BC-%EC%9E%98%ED%95%98%EB%8A%94-%EB%B2%95/thumbnail.jpg" alt="Featured image of post 코드 리뷰를 잘하는 법" /&gt;&lt;p&gt;코드 리뷰를 잘하고 싶어서 자료들을 찾아보면서 알게된 것들을 정리합니다.&lt;/p&gt;
+&lt;h4 id=&#34;코드리뷰를-왜-신경써야-하는가&#34;&gt;코드 리뷰를 왜 신경써야 하는가?&lt;/h4&gt;
+&lt;p&gt;중요한 것은 코드 리뷰 역시 코딩과 마찬가지로 우리가 해야할 &amp;lsquo;일&amp;rsquo;이라고 생각하는 것입니다.&lt;/p&gt;
+&lt;p&gt;간혹, 코드 리뷰를 그저 하나의 여가 시간(?)과 같이 생각하는 경우가 있는데&lt;br&gt;
+작업 시간의 일부를 할당해서 일로써 수행을 해야 합니다.&lt;br&gt;
+그래야 체계적이고 진지하게 리뷰를 주고 받을 수 있습니다.&lt;/p&gt;
+&lt;p&gt;또한 코드 리뷰를 통해서 다양한 시각과 의견을 주고 받을 수 있으며&lt;br&gt;
+나 혼자서는 찾지 못했던 버그나 개선점들을 얻을 수 있고 설명하는 능력을 기를 수 있습니다.&lt;br&gt;
+이를 통해서 서로 지식과 소프트 스킬을 향상 시킬 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&#34;요청자requester&#34;&gt;요청자(Requester)&lt;/h3&gt;
+&lt;h4 id=&#34;코드-리뷰를-요청하기-전-잘-정리하기&#34;&gt;코드 리뷰를 요청하기 전 잘 정리하기&lt;/h4&gt;
+&lt;p&gt;리뷰를 받을 코드의 문맥을 가장 잘 파악하고 있는 사람은 리뷰 요청자 입니다.&lt;/p&gt;
+&lt;p&gt;요청자가 미리 리뷰 내용과 의도를 잘 서술하면 그만큼 리뷰어의 시간을 절약할 수 있습니다.&lt;/p&gt;
+&lt;h4 id=&#34;작게나누어서-요청하기&#34;&gt;작게 나누어서 요청하기&lt;/h4&gt;
+&lt;p&gt;너무 많은 코드를 한번에 요청하면 리뷰어에게 많은 부담과 시간 소모를 주게 됩니다.&lt;br&gt;
+또한 코드를 이해하기도 점점 힘들어지기 때문에 작은 단위로 리뷰받는 것이 좋습니다.&lt;/p&gt;
+&lt;p&gt;보통 정량적으로는 200 라인 정도를 이야기하고, 정성적으로는 의미있는 작업 덩어리를 이야기 합니다.&lt;/p&gt;
+&lt;h3 id=&#34;리뷰어reviewer&#34;&gt;리뷰어(Reviewer)&lt;/h3&gt;
+&lt;h4 id=&#34;리뷰는최대한-빠르게&#34;&gt;리뷰는 최대한 빠르게&lt;/h4&gt;
+&lt;p&gt;요청자가 다음에 할 작업이 코드 리뷰가 완료되어야 진행되는 경우도 있고&lt;br&gt;
+요청자가 여러가지를 신경쓰게 하지 않기 위해 리뷰는(응답이라도) 최대한 빠르게 해줍니다.&lt;/p&gt;
+&lt;p&gt;가급적 하루를 넘기지 않으며, 병목 해소를 위해 하루를 넘기면 리뷰를 패스한다는 팀 간의 약속을 정할 수도 있습니다.&lt;/p&gt;
+&lt;h4 id=&#34;왜안좋은-부분만-남기죠&#34;&gt;왜 안좋은 부분만 남기죠?&lt;/h4&gt;
+&lt;p&gt;우리는 보통 피드백을 남길 때 코멘트를 하고, 잘한 부분은 그냥 보고 넘어갑니다.&lt;/p&gt;
+&lt;p&gt;잘한 부분이 보이면 가감없이 칭찬해줍시다.&lt;/p&gt;
+&lt;p&gt;서로간의 신뢰가 향상되는 것을 느낄 수 있습니다.&lt;/p&gt;
+&lt;h4 id=&#34;완벽할-수는-없습니다&#34;&gt;완벽할 수는 없습니다&lt;/h4&gt;
+&lt;p&gt;리뷰하는 코드가 내 마음에 들지 않을 수 있습니다.&lt;br&gt;
+피드백을 남기고 토론을 할 수 있지만 너무 완강한 의견 제시는 서로를 피곤하게 합니다.&lt;/p&gt;
+&lt;p&gt;어느정도 문제가 없을 것 같다면 수용합시다.&lt;/p&gt;
+&lt;p&gt;다만, 코드에 분명한 문제가 있는데 요청자가 고집을 부린다면 다른 사람(더 잘하는 사람)이 리뷰에 참여하게 하는 것이 좋습니다.&lt;/p&gt;
+&lt;h3 id=&#34;참조&#34;&gt;참조&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://google.github.io/eng-practices/review/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;구글 코드 리뷰 가이드&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/ssDMIcPBqUE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;우아한 형제들에서 코드리뷰를 주제로 한 테크 세미나&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>야곰 빗썸 테크 캠프 1기를 마치며</title>
         <link>https://korjaeyoungyun.github.io/p/%EC%95%BC%EA%B3%B0-%EB%B9%97%EC%8D%B8-%ED%85%8C%ED%81%AC-%EC%BA%A0%ED%94%84-1%EA%B8%B0%EB%A5%BC-%EB%A7%88%EC%B9%98%EB%A9%B0/</link>
         <pubDate>Thu, 17 Mar 2022 22:02:57 +0900</pubDate>
