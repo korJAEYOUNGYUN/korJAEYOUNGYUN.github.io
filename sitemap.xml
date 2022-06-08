@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
     <loc>https://korjaeyoungyun.github.io/categories/</loc>
-    <lastmod>2022-04-29T23:18:40+09:00</lastmod>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/tags/ios/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/categories/ios/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/post/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/tags/swiftui/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/categories/swiftui/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
+  </url><url>
+    <loc>https://korjaeyoungyun.github.io/tags/</loc>
+    <lastmod>2022-06-02T19:58:34+09:00</lastmod>
   </url><url>
     <loc>https://korjaeyoungyun.github.io/tags/code-review/</loc>
     <lastmod>2022-04-29T23:18:40+09:00</lastmod>
@@ -11,19 +35,10 @@
     <loc>https://korjaeyoungyun.github.io/categories/code-review/</loc>
     <lastmod>2022-04-29T23:18:40+09:00</lastmod>
   </url><url>
-    <loc>https://korjaeyoungyun.github.io/</loc>
-    <lastmod>2022-04-29T23:18:40+09:00</lastmod>
-  </url><url>
-    <loc>https://korjaeyoungyun.github.io/post/</loc>
-    <lastmod>2022-04-29T23:18:40+09:00</lastmod>
-  </url><url>
     <loc>https://korjaeyoungyun.github.io/tags/soft-skills/</loc>
     <lastmod>2022-04-29T23:18:40+09:00</lastmod>
   </url><url>
     <loc>https://korjaeyoungyun.github.io/categories/soft-skills/</loc>
-    <lastmod>2022-04-29T23:18:40+09:00</lastmod>
-  </url><url>
-    <loc>https://korjaeyoungyun.github.io/tags/</loc>
     <lastmod>2022-04-29T23:18:40+09:00</lastmod>
   </url><url>
     <loc>https://korjaeyoungyun.github.io/tags/%EC%86%8C%ED%94%84%ED%8A%B8-%EC%8A%A4%ED%82%AC/</loc>
@@ -37,12 +52,6 @@
   </url><url>
     <loc>https://korjaeyoungyun.github.io/tags/%ED%98%91%EC%97%85/</loc>
     <lastmod>2022-04-29T23:18:40+09:00</lastmod>
-  </url><url>
-    <loc>https://korjaeyoungyun.github.io/tags/ios/</loc>
-    <lastmod>2022-03-17T22:02:57+09:00</lastmod>
-  </url><url>
-    <loc>https://korjaeyoungyun.github.io/categories/ios/</loc>
-    <lastmod>2022-03-17T22:02:57+09:00</lastmod>
   </url><url>
     <loc>https://korjaeyoungyun.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90/</loc>
     <lastmod>2022-03-17T22:02:57+09:00</lastmod>

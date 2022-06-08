@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다. 이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시'><title>alignmentGuide 활용하기</title>
+
+<link rel='canonical' href='https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='alignmentGuide 활용하기'>
+<meta property='og:description' content='SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다. 이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시'>
+<meta property='og:url' content='https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/'>
+<meta property='og:site_name' content='JAEYOUNGYUN'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='iOS' /><meta property='article:tag' content='SwiftUI' /><meta property='article:published_time' content='2022-06-02T19:58:34&#43;09:00'/><meta property='article:modified_time' content='2022-06-02T19:58:34&#43;09:00'/><meta property='og:image' content='https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/thumbnail.jpg' />
+<meta name="twitter:title" content="alignmentGuide 활용하기">
+<meta name="twitter:description" content="SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다. 이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/thumbnail.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PQJF6X446N"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-PQJF6X446N', { 'anonymize_ip': false });
+}
+</script>
+
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "light");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/my_hu1a81e4452237b66c762c6f78015f4e63_175245_300x0_resize_q75_box.jpeg" width="300"
+                            height="225" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">JAEYOUNGYUN</a></h1>
+        <h2 class="site-description">#iOS Developer</h2><ol class="social-menu">
+                
+                    <li>
+                        <a 
+                            href='https://github.com/korJAEYOUNGYUN'
+                            target="_blank"
+                            title="GitHub"
+                        >
+                            
+                            
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            
+                        </a>
+                    </li>
+                
+            </ol></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>다크 모드</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/">
+                <img src="/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/thumbnail_hu4a798c316ee3f756fc8e0bad231c8bb3_532345_800x0_resize_q75_box.jpg"
+                        srcset="/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/thumbnail_hu4a798c316ee3f756fc8e0bad231c8bb3_532345_800x0_resize_q75_box.jpg 800w, /p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/thumbnail_hu4a798c316ee3f756fc8e0bad231c8bb3_532345_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="600" 
+                        loading="lazy"
+                        alt="Featured image of post alignmentGuide 활용하기" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ios/" >
+                iOS
+            </a>
+        
+            <a href="/categories/swiftui/" >
+                SwiftUI
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/">alignmentGuide 활용하기</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 02, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다.<br>
+이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시킬 수 있습니다.</p>
+<h3 id="func-alignmentguideg-computevlue---some-view">func alignmentGuide(g, computeVlue) -&gt; some View</h3>
+<p>alignmentGuide 메소드는 <strong>g</strong>와 <strong>computeValue</strong> 두 가지 인자를 받습니다.</p>
+<p>g는 HorizontalAlignment 또는 VerticalAlignment인데, 해당 Alignment에 대한 정렬 기준을 나타낸다는 뜻입니다.<br>
+예를들어 g에 HorizontalAlignment.leading를 주게 되면 HorizontalAlignment.leading에 대한 기준을 alignmentGuide를 통해 커스텀한다는 뜻입니다.</p>
+<p>두 번째 인자인 computeValue는 (ViewDimensions) -&gt; CGFloat 클로저 입니다. 이 클로저는 정렬에 사용할 offset을 계산합니다.<br>
+클로저에서는 ViewDimensions를 주는데,  ViewDimensions는 해당 뷰의 크기와 alignmentGuide들을 제공합니다.</p>
+<p><strong>결과적으로 computeValue에서 계산된 offset이 g에 적용되어 g에 대한 정렬이 바뀌게 되는 것입니다.</strong></p>
+<h3 id="예제---top-정렬을-center-정렬로-바꾸기">예제 - top 정렬을 center 정렬로 바꾸기</h3>
+<p>예제를 통해서 alignmentGuide 활용법에 대해서 알아보도록 하겠습니다.</p>
+<p>우리는 책의 목록을 나타내고자 합니다.
+책의 목록은 아래와 같이 단순하게 책 제목과 책 제목 왼쪽에 점이 붙어 있는 형태입니다.</p>
+<ul>
+<li>책1</li>
+<li>책2</li>
+</ul>
+<p>이를 구현하기 위해서 생각나는대로 코드를 작성해봅니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">struct</span> <span class="nc">BookItemView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">title</span><span class="p">:</span> <span class="nb">String</span>
+
+  <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="n">HStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;circle.fill&#34;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">8</span><span class="p">)</span>
+
+      <span class="n">Text</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>위 코드처럼 BookItemView를 만들고 이를 List안에 ForEach를 통해서 책의 목록을 구현하였습니다.<br>
+하지만 여기에는 문제가 있습니다.</p>
+<figure><img src="wrong1.png"
+         alt="정렬이 맞지 않는 목록 아이템" width="250"/><figcaption>
+            <p>정렬이 맞지 않는 목록 아이템</p>
+        </figcaption>
+</figure>
+
+<p>위 이미지처럼 동그라미 아이콘과 책 제목의 정렬이 맞지 않는 것입니다.</p>
+<h4 id="top-padding으로-해결하기">top padding으로 해결하기</h4>
+<p>이를 해결하기 위해 이미지에 필요한 top padding 계산해서 넣어주면 해결됩니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+  <span class="n">HStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;circle.fill&#34;</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+      <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">8</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">padding</span><span class="p">(.</span><span class="n">top</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1">// 정렬을 맞추기 위한 top padding</span>
+
+      <span class="n">Text</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><figure><img src="good.png"
+         alt="top padding을 줘서 정렬된 목록 아이템" width="250"/><figcaption>
+            <p>top padding을 줘서 정렬된 목록 아이템</p>
+        </figcaption>
+</figure>
+
+<p>이렇게 하면 정렬이 잘 되지만 이미지나 텍스트의 크기가 변할 경우, 패딩 또한 다시 계산해서 바꿔줘야합니다.</p>
+<figure><img src="wrong2.png"
+         alt="top padding을 줬지만 아이콘 크기가 바뀌어 정렬이 맞지 않는 목록 아이템" width="250"/><figcaption>
+            <p>top padding을 줬지만 아이콘 크기가 바뀌어 정렬이 맞지 않는 목록 아이템</p>
+        </figcaption>
+</figure>
+
+<h4 id="alignmentguide로-해결하기">alignmentGuide로 해결하기</h4>
+<p>alignmentGuide를 사용하면 이런 상황을 깔끔하게 해결할 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+  <span class="n">HStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Image</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;circle.fill&#34;</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+      <span class="p">.</span><span class="n">frame</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">8</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">alignmentGuide</span><span class="p">(</span><span class="n">VerticalAlignment</span><span class="p">.</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span> <span class="n">viewDimensions</span> <span class="k">in</span> <span class="c1">// 정렬을 맞추기 위한 alignmentGuide</span>
+        <span class="n">viewDimensions</span><span class="p">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="p">}</span>
+
+    <span class="n">Text</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+      <span class="p">.</span><span class="n">alignmentGuide</span><span class="p">(</span><span class="n">VerticalAlignment</span><span class="p">.</span><span class="n">top</span><span class="p">)</span> <span class="p">{</span> <span class="n">viewDimensions</span> <span class="k">in</span> <span class="c1">// 정렬을 맞추기 위한 alignmentGuide</span>
+        <span class="n">viewDimensions</span><span class="p">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>위 코드에서는 Image와 Text에 alignmentGuide를 주었습니다.</p>
+<p>alignmentGuide의 첫 번째 인자인 VerticalAlignment.top은 말 그대로 VerticalAlignment.top 정렬에 대한 기준을 정하겠다는 것을 뜻합니다.</p>
+<p>두 번째 인자에서 그 기준에 대한 offset을 계산하는데 여기서는 해당 뷰의 절반만큼을 offset으로 주었습니다.<br>
+top에서 뷰 높이의 절반만큼 더하면 뷰의 중간이 되겠죠.<br>
+따라서 우리가 원하는 중간 정렬이 됩니다. 이는 뷰의 크기가 변하더라도 그에 맞게 계산되어 앞의 문제를 해결합니다.</p>
+<h4 id="더-나아가서">더 나아가서</h4>
+<p>사실 중간정렬은 alignment를 top이 아닌, center로 주면 간단하게 구현가능합니다. 😅<br>
+하지만 이해를 위해 위 예제를 만들어 보았습니다.</p>
+<p>이해에 도움이 되었으면하는 바람이며, 이를 통해서 나만의 커스텀 정렬을 수행해보시길 바랍니다.<br>
+예를들어, 아이콘과 여러줄의 Text의 첫 번째 줄을 가운데 정렬해보시는 것들도 alignmentGuide를 사용하면 구현할 수 있습니다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ios/">iOS</a>
+        
+            <a href="/tags/swiftui/">SwiftUI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>written by JAEYOUNGYUN</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">관련 글</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/%EC%95%BC%EA%B3%B0-%EB%B9%97%EC%8D%B8-%ED%85%8C%ED%81%AC-%EC%BA%A0%ED%94%84-1%EA%B8%B0%EB%A5%BC-%EB%A7%88%EC%B9%98%EB%A9%B0/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%EC%95%BC%EA%B3%B0-%EB%B9%97%EC%8D%B8-%ED%85%8C%ED%81%AC-%EC%BA%A0%ED%94%84-1%EA%B8%B0%EB%A5%BC-%EB%A7%88%EC%B9%98%EB%A9%B0/thumbnail.403f4cfbc415540b271595427d281ba3_hu40559f6f288be1d705625a137120c639_1907781_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 야곰 빗썸 테크 캠프 1기를 마치며"
+                        
+                        data-hash="md5-QD9M&#43;8QVVAsnFZVCfSgbow==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">야곰 빗썸 테크 캠프 1기를 마치며</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/skeletonview-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Skeletonview 적용하기</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/ux%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-skeletonview/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">UX를 향상시켜주는 SkeletonView</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/viewdidload%EC%97%90%EC%84%9C-navigationcontroller%EA%B0%80-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">viewDidLoad에서 navigationController가 없는 경우?</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/stringformat-%EC%88%9C%EC%84%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0/">
+        
+        
+            <div class="article-image">
+                <img src="/p/stringformat-%EC%88%9C%EC%84%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0/_hu5e2cf54af9c42dfb2c6b9308d130d6ca_58278_4e912884969da3bcd8c1beeb1d70d947.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post StringFormat 순서 바꾸기"
+                        
+                        data-hash="md5-bj8u1WsCfRsGu2mYv&#43;HXOg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">StringFormat 순서 바꾸기</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="korJAEYOUNGYUN/github.io-comments"
+        issue-term="title"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 JAEYOUNGYUN
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content in iOS on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Mar 2022 22:02:57 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 19:58:34 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>alignmentGuide 활용하기</title>
+      <link>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <description>SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다. 이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시</description>
+    </item>
+    
     <item>
       <title>야곰 빗썸 테크 캠프 1기를 마치며</title>
       <link>https://korjaeyoungyun.github.io/p/%EC%95%BC%EA%B3%B0-%EB%B9%97%EC%8D%B8-%ED%85%8C%ED%81%AC-%EC%BA%A0%ED%94%84-1%EA%B8%B0%EB%A5%BC-%EB%A7%88%EC%B9%98%EB%A9%B0/</link>

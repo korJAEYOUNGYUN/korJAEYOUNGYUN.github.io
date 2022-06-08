@@ -6,7 +6,16 @@
     <description>Recent content in Posts on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 23:18:40 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 19:58:34 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>alignmentGuide 활용하기</title>
+      <link>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <description>SwiftUI에서는 alignmentGuide 메소드를 통해 정렬 기준을 커스터마이징할 수 있습니다. 이를 통해서 우리는 단순히 제공되는 정렬이 아닌, 우리만의 기준으로 뷰들을 정렬시</description>
+    </item>
+    
     <item>
       <title>코드 리뷰를 잘하는 법</title>
       <link>https://korjaeyoungyun.github.io/p/%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%A5%BC-%EC%9E%98%ED%95%98%EB%8A%94-%EB%B2%95/</link>

@@ -6,7 +6,25 @@
     <description>Recent content in Categories on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 23:18:40 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 19:58:34 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://korjaeyoungyun.github.io/categories/ios/</link>
+      <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SwiftUI</title>
+      <link>https://korjaeyoungyun.github.io/categories/swiftui/</link>
+      <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/swiftui/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Code Review</title>
       <link>https://korjaeyoungyun.github.io/categories/code-review/</link>
@@ -22,15 +40,6 @@
       <pubDate>Fri, 29 Apr 2022 23:18:40 +0900</pubDate>
       
       <guid>https://korjaeyoungyun.github.io/categories/soft-skills/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://korjaeyoungyun.github.io/categories/ios/</link>
-      <pubDate>Thu, 17 Mar 2022 22:02:57 +0900</pubDate>
-      
-      <guid>https://korjaeyoungyun.github.io/categories/ios/</guid>
       <description></description>
     </item>
     
