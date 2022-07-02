@@ -6,7 +6,61 @@
         <description>Recent content on JAEYOUNGYUN</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 02 Jun 2022 19:58:34 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 02 Jul 2022 20:53:18 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Riiid에서의 수습기간 회고</title>
+        <link>https://korjaeyoungyun.github.io/p/riiid%EC%97%90%EC%84%9C%EC%9D%98-%EC%88%98%EC%8A%B5%EA%B8%B0%EA%B0%84-%ED%9A%8C%EA%B3%A0/</link>
+        <pubDate>Sat, 02 Jul 2022 20:53:18 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/riiid%EC%97%90%EC%84%9C%EC%9D%98-%EC%88%98%EC%8A%B5%EA%B8%B0%EA%B0%84-%ED%9A%8C%EA%B3%A0/</guid>
+        <description>&lt;p&gt;처음 뤼이드에 찾아갔을 때, 사무실이 정말 멋졌습니다.&lt;br&gt;
+잘 꾸며지고 있을거 다 있는 사무실을 보면서 여기서 일하는 내 모습을 상상했었죠.&lt;br&gt;
+그런 제가 뤼이드에 입사한지도 벌써 3개월이 흘렀습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;me.png&#34;
+         alt=&#34;네 접니다&#34; width=&#34;300&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;네 접니다&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;기존의 환경에서 벗어나 새로운 환경에 들어가게 되니 처음에는 많이 낯설더군요.&lt;br&gt;
+새로운 멋진 동료들과 일하면서 짧지만 3개월동안 많은 것을 보고 느낄 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;지난 일들을 돌아보면서 더욱 더 발전해나가고, 미래에 다시 돌아볼 수 있도록 뤼이드에서의 새로운 경험들을 정리합니다.&lt;/p&gt;
+&lt;h3 id=&#34;코드-구현을-넘어서-&#34;&gt;코드 구현을 넘어서 🚀&lt;/h3&gt;
+&lt;p&gt;제가 가장 크게 변한 부분입니다.&lt;/p&gt;
+&lt;p&gt;첫 현업에 들어가고 나서 일년여동안에는 코드에 대해 집중했습니다.&lt;br&gt;
+어떻게하면 더 깔끔한 코드를 짤 수 있는지, 어떻게 기능을 구현해야 하는지에 대해서 고민하고 공부하던 시기였죠.&lt;br&gt;
+올해도 여전히 공부할 것은 많고 코딩에 대해서 발전시켜야하지만 다른 부분에 대해서도 시야가 트이기 시작했습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;books.png&#34;
+         alt=&#34;최근에 빌려본 책들&#34; width=&#34;500&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;최근에 빌려본 책들&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;개발적으로는 CI/CD, 자동화 등등 Xcode밖에서도 해야할 것들이 많더라구요.&lt;br&gt;
+언젠간 이러한 것들도 자유자재로 다룰 수 있었으면 좋겠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;dxdevloper-experience-devreldeveloper-relations-팀의-존재-&#34;&gt;DX(Devloper Experience), DevRel(Developer Relations) 팀의 존재 🙏&lt;/h3&gt;
+&lt;p&gt;DX 팀에서는 개발에 도움이 될 수 있는 부분에 대한 도구들을 편리하게 만들어 제공해줍니다.&lt;br&gt;
+한마디로 개발자들을 위한 개발자들이라고 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;DevRel팀은 개발 관련 행사를 주최하는 등 회사 안팎으로 개발자들이 소통하고 교류할 수 있게 도움을 줍니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;wwdc.JPG&#34;
+         alt=&#34;DevRel팀의 도움으로 외부인들을 초청한 wwdc 같이 보기 행사도 했었습니다&#34; width=&#34;500&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;DevRel팀의 도움으로 외부인들을 초청한 wwdc 같이 보기 행사도 했었습니다&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;정말 없어서는 안되는 소중한 조직입니다.&lt;/p&gt;
+&lt;h3 id=&#34;회고-및-교류-&#34;&gt;회고 및 교류 🧐&lt;/h3&gt;
+&lt;p&gt;이 글을 쓰게 된 계기 역시 회고 문화를 경험하면서 생기게 되었습니다.&lt;/p&gt;
+&lt;p&gt;제품 팀과의 회고, iOS 개발자들끼리의 회고를 통해 잘한 것과 문제점들을 공유하며&lt;br&gt;
+서로 칭찬하고, 개선할 방향들을 탐색해나가는 일들이 주기적으로, 자주 일어나고 있습니다.&lt;br&gt;
+다양한 시각과 의견들을 자유롭게 나누는 모습이 처음에 굉장히 인상적이었습니다.&lt;/p&gt;
+&lt;p&gt;또한 기술 교류시간이 있어서 iOS 개발자들 끼리 모여서 신기술을 공부하고, 해결하기 어려웠던 문제들을 공유하며 조언을 구합니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;지난 3개월을 돌아보니 회사에 적응하면서 다양한 것들을 느끼고 있음을 새삼 깨닫습니다.&lt;/p&gt;
+&lt;p&gt;회사에서 개발에 더욱 집중하기 위해 많은 것들에 힘쓰는 것을 보면서 더욱 더 책임감있게 일을 해야겠다는 생각이 듭니다.&lt;br&gt;
+또한 아직 배워야할 것들이 많아 앞으로 열심히 공부하며 나 자신도 발전시켜나가야 할 것 같습니다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>alignmentGuide 활용하기</title>
         <link>https://korjaeyoungyun.github.io/p/alignmentguide-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
         <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
