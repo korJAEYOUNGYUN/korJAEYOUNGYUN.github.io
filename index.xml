@@ -6,7 +6,61 @@
         <description>Recent content on JAEYOUNGYUN</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 02 Jul 2022 20:53:18 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 24 Jul 2022 10:10:45 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>렛어스고 2022 여름 후기</title>
+        <link>https://korjaeyoungyun.github.io/p/%EB%A0%9B%EC%96%B4%EC%8A%A4%EA%B3%A0-2022-%EC%97%AC%EB%A6%84-%ED%9B%84%EA%B8%B0/</link>
+        <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
+        
+        <guid>https://korjaeyoungyun.github.io/p/%EB%A0%9B%EC%96%B4%EC%8A%A4%EA%B3%A0-2022-%EC%97%AC%EB%A6%84-%ED%9B%84%EA%B8%B0/</guid>
+        <description>&lt;img src="https://korjaeyoungyun.github.io/p/%EB%A0%9B%EC%96%B4%EC%8A%A4%EA%B3%A0-2022-%EC%97%AC%EB%A6%84-%ED%9B%84%EA%B8%B0/thumbnail.png" alt="Featured image of post 렛어스고 2022 여름 후기" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://let-us-go-2022-summer.vercel.app/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;렛어스고 2022 여름 행사&lt;/a&gt;에 갔다왔습니다.&lt;/p&gt;
+&lt;p&gt;회사에서 알림까지 맞춰가면서 참가 신청을 했었는데, 운좋게 선착순에 들게되어 가게 되었네요.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;me.png&#34;
+         alt=&#34;접니다&#34; width=&#34;250&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;접니다&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;행사는 ssg의 장소협찬으로 역삼 센터필드 ssg 사무실에서 하게되었습니다.&lt;br&gt;
+아주 밝고 화사하게 잘 꾸며놨더라구요.&lt;/p&gt;
+&lt;p&gt;저는 회사 동료 한분이랑 같이 입장했는데, 이미 많은 분들이 와서 이야기 나누고, 착석하여 준비를 하고 계셨습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;ssg.png&#34;
+         alt=&#34;실제로 보면 더 환하고 이쁩니다&#34; width=&#34;600&#34;/&gt;&lt;figcaption&gt;
+            &lt;p&gt;실제로 보면 더 환하고 이쁩니다&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;세션&#34;&gt;세션&lt;/h3&gt;
+&lt;p&gt;다양한 분들이 다양한 주제로 발표를 해주셨습니다.&lt;/p&gt;
+&lt;p&gt;경험이 꽤 되신 분들부터, 경험이 오래되지 않으신 분들, 그리고 포항공대의 애플 아카데미에 계신 분도 계셨죠.&lt;/p&gt;
+&lt;p&gt;놀라웠던 점은 이러한 자리에서 발표를 한다는 것은 정말 큰 부담이고 고수만 할 수 있다는 생각을 하고 있었는데&lt;br&gt;
+주니어 분들도 자신만의 주제와 인사이트를 가지고 발표를 해주셨습니다.&lt;br&gt;
+그걸 보면서 용기에 반했고 또한 많은 것을 배울 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;기억에 남는 것은 핫 리로딩과 DocC입니다.&lt;/p&gt;
+&lt;p&gt;핫 리로딩은 SwiftUI의 프리뷰처럼 따로 빌드를 하지 않고 실시간으로 시뮬에서 수정사항을 볼 수 있는 기술이었습니다.&lt;br&gt;
+이것을 적용하면 개발하면서 시간 낭비를 줄일 수 있기 때문에 관심있게 보았습니다.&lt;/p&gt;
+&lt;p&gt;DocC는 애플의 공식문서 처럼 문서화를 할 수 있는 기술이었는데&lt;br&gt;
+주석형태로 작성하여 DocC를 통해서 컴파일한다는 점도 흥미로웠고, 애플 문서처럼 구조화, 코드 스펙에 대한 내용이 자동으로 생성된다는 점이 매우 흥미로웠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;네트워킹&#34;&gt;네트워킹&lt;/h3&gt;
+&lt;p&gt;세션 절반이 끝나고 네트워킹 시간이 있었습니다.&lt;br&gt;
+이때, 자유롭게 돌아다니면서 다른 사람들과 인사를 할 수 있었는데&lt;br&gt;
+특히 발표자분들 주변에는 많은 사람들이 모여서 발표 주제에 대해서 심도 있는 대화를 나누고 계셨습니다.&lt;/p&gt;
+&lt;p&gt;저는 민소네님 곁에서 tuist에 대한 대화를 구경(?)했습니다.&lt;br&gt;
+많은 분들이 tuist를 사용하시는 건지 질문이 많았습니다.&lt;br&gt;
+기억에 남는 내용은 tuist는 프로젝트를 구성하는 도구일 뿐이며, 프로젝트 설정과 구성에 따라 SPM과 tuist등 도구를 잘 골라서 사용하면 된다는 것이었습니다.&lt;/p&gt;
+&lt;p&gt;그 후, 야곰 테크 코스를 같이 들었던 분들을 만나 그 분들과 재미있게 이야기를 나누었습니다.&lt;br&gt;
+오프라인에서 만난 것은 처음이라 어색했지만 서로 근황을 얘기하면서 친해질 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;아쉬웠던 점은 다들 명함을 주고받으면서 인사를 했는데 저는 명함을 가져가지 않아서 드리지 못했습니다. 😭&lt;/p&gt;
+&lt;h3 id=&#34;마무리&#34;&gt;마무리&lt;/h3&gt;
+&lt;p&gt;코로나 때문에 렛어스고가 2년동안 안하게 되면서 저에게는 첫 렛어스고 행사였습니다.&lt;br&gt;
+영상으로만 보면서 iOS 개발자의 꿈을 키웠었는데, 이제는 개발자로서 참가하게되니 더욱 뜻깊었습니다.&lt;/p&gt;
+&lt;p&gt;앞으로도 렛어스고 행사에 계속 참가하면서 저도 한국 iOS 생태계에 기여할 수 있었으면 좋겠습니다.&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;all.JPG&#34; width=&#34;800&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+        </item>
+        <item>
         <title>Riiid에서의 수습기간 회고</title>
         <link>https://korjaeyoungyun.github.io/p/riiid%EC%97%90%EC%84%9C%EC%9D%98-%EC%88%98%EC%8A%B5%EA%B8%B0%EA%B0%84-%ED%9A%8C%EA%B3%A0/</link>
         <pubDate>Sat, 02 Jul 2022 20:53:18 +0900</pubDate>

@@ -6,22 +6,67 @@
     <description>Recent content in Categories on JAEYOUNGYUN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jul 2022 20:53:18 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Jul 2022 10:10:45 +0900</lastBuildDate><atom:link href="https://korjaeyoungyun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>회고</title>
-      <link>https://korjaeyoungyun.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Sat, 02 Jul 2022 20:53:18 +0900</pubDate>
+      <title>2022</title>
+      <link>https://korjaeyoungyun.github.io/categories/2022/</link>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
       
-      <guid>https://korjaeyoungyun.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
+      <guid>https://korjaeyoungyun.github.io/categories/2022/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conference</title>
+      <link>https://korjaeyoungyun.github.io/categories/conference/</link>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/conference/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iOS</title>
       <link>https://korjaeyoungyun.github.io/categories/ios/</link>
-      <pubDate>Thu, 02 Jun 2022 19:58:34 +0900</pubDate>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
       
       <guid>https://korjaeyoungyun.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>let us: Go!</title>
+      <link>https://korjaeyoungyun.github.io/categories/let-us-go/</link>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/let-us-go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>렛어스고</title>
+      <link>https://korjaeyoungyun.github.io/categories/%EB%A0%9B%EC%96%B4%EC%8A%A4%EA%B3%A0/</link>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/%EB%A0%9B%EC%96%B4%EC%8A%A4%EA%B3%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>컨퍼런스</title>
+      <link>https://korjaeyoungyun.github.io/categories/%EC%BB%A8%ED%8D%BC%EB%9F%B0%EC%8A%A4/</link>
+      <pubDate>Sun, 24 Jul 2022 10:10:45 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/%EC%BB%A8%ED%8D%BC%EB%9F%B0%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회고</title>
+      <link>https://korjaeyoungyun.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sat, 02 Jul 2022 20:53:18 +0900</pubDate>
+      
+      <guid>https://korjaeyoungyun.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     
